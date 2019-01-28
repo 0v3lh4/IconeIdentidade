@@ -1,6 +1,6 @@
 defmodule IconeIdentidade do
   @moduledoc """
-  Documentation for IconeIdentidade.
+  Cria uma imagem de identidade a partir de um texto
   """
 
   def main(input) do
@@ -70,6 +70,18 @@ defmodule IconeIdentidade do
     linha ++ [sec, pri]
   end
 
+  @doc """
+    Ao receber `input`, retorna o binário a partir do seu hash
+      ## Exemplo
+      iex> IconeIdentidade.hash_input("Groot")
+      %IconeIdentidade.Imagem{
+        cor: nil,
+        grid: nil,
+        hex: [41, 101, 205, 19, 179, 198, 27, 219, 74, 123, 195, 57, 220, 247, 125,
+        166],
+        pixel_map: nil
+      }
+  """
   def hash_input(input) do
     hex =
       :crypto.hash(:md5, input)
